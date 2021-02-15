@@ -131,7 +131,7 @@ function moveupleft() {
 }
 
 function movedownleft() {
-	k.ArrowLeft = 0.5;
+	k.ArrowLeft = 1;
 }
 
 function moveupright() {
@@ -139,7 +139,7 @@ function moveupright() {
 }
 
 function movedownright() {
-	k.ArrowRight = 0.5;
+	k.ArrowRight = 1;
 }
 
 
