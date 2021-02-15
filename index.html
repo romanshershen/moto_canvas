@@ -19,6 +19,8 @@ button{
 	width: 50px;
 	height: 50px;
 	padding: 0 2px;
+	background-color: #000;
+	
 }
 .right {
     transform: rotate(-45deg);
@@ -42,12 +44,12 @@ button{
 .rotup{
 	position: absolute;
 	top: 50%;
-	right: 0;
+	left: 0;
 }
 .rotdown{
 	position: absolute;
 	top: 50%;
-	left: 0;
+	right: 0;
 }
 
 	</style>
@@ -59,8 +61,8 @@ button{
 	<center>
 		<button class="forward" ontouchstart="move();">MOVE</button>
 		<!-- <button class="backward" ontouchstart="movedownBack();" ontouchend="moveupBack();" ><i class="arrow left"></i></button> -->
-		<button class="rotup" ontouchstart="moveupleft();" ontouchend="movedownleft();" ><i class="arrow down"></i></button>
-		<button class="rotdown" ontouchstart="moveupright();" ontouchend="movedownright();"><i class="arrow up"></i></button>
+		<button class="rotup" ontouchstart="moveupleft();" ontouchend="movedownleft();" ></button>
+		<button class="rotdown" ontouchstart="moveupright();" ontouchend="movedownright();"></button>
 		<input type="button" value="Refresh Page" onClick="window.location.reload();">
 	</center>
 	
