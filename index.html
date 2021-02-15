@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<title>Moto Game</title>
+	<style>*{margin: 0;}
+	body{
+		position: relative;
+	}
+	i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+button{
+	width: 50px;
+	height: 50px;
+	padding: 0 2px;
+}
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.rotup{
+	position: absolute;
+	top: 50%;
+	right: 0;
+}
+.rotdown{
+	position: absolute;
+	top: 50%;
+	left: 0;
+}
+
+	</style>
+</head>
+<body>
+	
+	<script src="index.js"></script>
+
+	<center>
+		<button class="forward" ontouchstart="move();">MOVE</button>
+		<!-- <button class="backward" ontouchstart="movedownBack();" ontouchend="moveupBack();" ><i class="arrow left"></i></button> -->
+		<button class="rotup" ontouchstart="moveupleft();" ontouchend="movedownleft();" ><i class="arrow down"></i></button>
+		<button class="rotdown" ontouchstart="moveupright();" ontouchend="movedownright();"><i class="arrow up"></i></button>
+		<input type="button" value="Refresh Page" onClick="window.location.reload();">
+	</center>
+	
+</body>
+</html>
