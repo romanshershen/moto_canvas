@@ -9,6 +9,7 @@
 	body{
 		position: relative;
 		overflow: hidden;
+		background: #000;
 	}
 	i {
     border: solid black;
@@ -53,6 +54,10 @@ button{
 	top: 50%;
 	right: 0;
 }
+input{
+	text-transform: uppercase;
+	
+}
 
 	</style>
 </head>
@@ -61,7 +66,17 @@ button{
 	<script src="index.js"></script>
 
 	<center>
-		<button class="forward" ontouchstart="move();">MOVE</button>
+		<button class="forward" ontouchstart="move();"><div style="position: absolute;
+			bottom: calc(0% - 30p);
+			left: calc(50% - 30px);
+			width: 60px;
+			height: 60px;
+			border: 2px solid rgb(255, 255, 255);
+			border-radius: 10px;
+			box-sizing: border-box;
+			opacity: 0.25;
+			will-change: opacity;
+		}"><div style="position: absolute; top: calc(50% - 13px); left: calc(50% - 11px); width: 22px; height: 26px; background-image: url(0d610daf67902cdb0c8f7a936d11a961.png); background-size: cover; transform: rotate(90deg);"></div></div></button>
 		<button class="backward" ontouchstart="movedownBack();" ontouchend="moveupBack();">STOP</button> 
 		<button class="rotup" ontouchstart="movedownleft();" ontouchend="moveupleft();" ><div style="position: absolute;
 			top: calc(50% - 30px);
@@ -85,7 +100,29 @@ button{
 			opacity: 0.25;
 			will-change: opacity;
 		}"><div style="position: absolute; top: calc(50% - 9px); left: calc(50% - 11px); width: 22px; height: 18px; background-image: url(00a7e92cbdac1c30d8e13460d27109df.png); background-size: cover; transform: rotate(180deg);"></div></div></button>
-		<input type="button" value="Refresh Page" onClick="window.location.reload();">
+		<!-- <input class="refresh" style="position: absolute;
+		top: calc(0% + 30px);
+		left: calc(100% - 90px);
+		width: 80px;
+		height: 60px;
+		border: 2px solid rgb(255, 255, 255);
+		border-radius: 10px;
+		box-sizing: border-box;
+		opacity: 0.25;
+		will-change: opacity;
+		background-image: url(refresh.jpg) no-repeat;
+	}" type="button" onClick="window.location.reload();"> -->
+	<button  onClick="window.location.reload();"><div style="position: absolute;
+		top: calc(0% + 30px);
+		left: calc(100% - 90px);
+		width: 60px;
+		height: 60px;
+		border: 2px solid rgb(255, 255, 255);
+		border-radius: 10px;
+		box-sizing: border-box;
+		opacity: 0.25;
+		will-change: opacity;
+	}"><div style="position: absolute; top: calc(50% - 11px); left: calc(50% - 11px); width: 25px; height: 25px; background-image: url(refresh.png); background-size: cover; transform: rotate(180deg);"></div></div></button>
 	</center>
 	
 </body>
