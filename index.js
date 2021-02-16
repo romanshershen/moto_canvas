@@ -1,7 +1,7 @@
 var c = document.createElement("canvas");
 var ctx = c.getContext("2d");
 c.width = window.innerWidth; 
-c.height = window.innerHeight * 0.9;
+c.height = window.innerHeight * 0.8;
 
 document.body.appendChild(c);
 
@@ -14,7 +14,7 @@ while (perm.length < 255){
 
 var lerp = (a, b, t) => a + (b -a) * (1 - Math.cos(t * Math.PI))/2;
 var noise = x=>{
-	x = x * 0.01 % 255;
+	x = x * 0.007 % 255;
 	return lerp(perm[Math.floor(x)], perm[Math.ceil(x)], x - Math.floor(x));
 }
 
@@ -42,7 +42,7 @@ var player = new function() {
 			playing = false;
 			this.rSpeed = 5;
 			k.ArrowUp = 1;
-			this.x -= sped * 2.5;
+			this.x -= rSpeed * 0;
 		}
 
 		var angle = Math.atan2((p2 - 30) - this.y, (this.x + 5) - this.x);
