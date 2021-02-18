@@ -136,8 +136,8 @@ function loop() {
 	speed -= (speed - (k.ArrowUp - k.ArrowDown)) * 0.01;
 	t += 12 * speed;
 	var my_gradient = ctx.createLinearGradient(0, 0, 100, 800);
-    my_gradient.addColorStop(0, "orange");
-    my_gradient.addColorStop(1, "red");
+    my_gradient.addColorStop(0, "#196284");
+    my_gradient.addColorStop(1, "#20ad72");
     ctx.fillStyle = my_gradient;
 	ctx.fillRect(0, 0, c.width, c.height);
 
