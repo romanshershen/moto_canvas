@@ -73,27 +73,31 @@ var player = new function() {
 	// УПАЛ НА ГОЛОВУ	
 		if (!playing && !grounded && Math.abs(this.rot) > Math.PI * 0.7){
 			
+			
+			
+			//alert ('Your score: ' + score);
+			
 
 			
-			 alert ('Your score:' + score );
+	// 		function myFunc()
+    // {
+    //    // код, который нужно  запустить после паузы
+	  window.location.reload();
+    // }
+      
+    // setTimeout(myFunc, 10);
 
 
-			
-	
-
-
-			$('body').append('<p id="score" class="bidScore"></p>');
+			//$('body').append('<p id="" class="bigScore">Your score: score <br><button id="refresh" onClick="window.location.reload();">перезагрузить</button></p>');
 			// document.getElementById("bigScoreEl").childNodes[0].nodeValue = score;
 			// window.location.reload();
 		}
 		
 
+// При сальто
 		if ( Math.abs(this.rot) >= Math.PI * 0.99){	
 			score += 100;
 			document.getElementById("scoreEl").childNodes[0].nodeValue = score;
-			
-			
-			
 			$('body').append('<p id="score_salto" class="score_salto">+100</p>');
 			
 		} 
