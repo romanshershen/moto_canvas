@@ -3,6 +3,13 @@ var ctx = c.getContext("2d");
 c.width = window.innerWidth; 
 c.height = window.innerHeight * 0.8;
 
+
+
+const scoreEl = document.querySelector('#scoreEl');
+let score = 0;
+
+
+
 document.body.appendChild(c);
 
 var perm = [];
@@ -12,12 +19,15 @@ while (perm.length < 255){
 }
 
 
-var lerp = (a, b, t) => a + (b -a) * (1 - Math.cos(t * Math.PI))/2;
+
+var lerp = (a, b, t) => a + (b - a) * (1 - Math.cos(t * Math.PI))/2;
 var noise = x=>{
 	x = x * 0.007 % 255;
 	return lerp(perm[Math.floor(x)], perm[Math.ceil(x)], x - Math.floor(x));
 }
 
+
+// var SecondWay = 0;
 var player = new function() {
 	this.x = c.width/2;
 	this.y = 0;
@@ -27,6 +37,7 @@ var player = new function() {
 
 	this.img = new Image();
 	this.img.src = "moto.png";
+	
 	this.draw = function(){
 		var p1 = c.height - noise(t + this.x) * 0.25;
 		var p2 = c.height - noise(t + 5 + this.x) * 0.25;
@@ -37,21 +48,62 @@ var player = new function() {
 			this.ySpeed -= this.y - (p1 - 30);
 			this.y = p1 - 30;
 			grounded = 1;
+			
 		}
 		if(!playing || grounded && Math.abs(this.rot) > Math.PI * 0.5){
 			playing = false;
 			this.rSpeed = 5;
 			k.ArrowUp = 1;
-			this.x -= rSpeed * 0;
+			this.x -= speed * 0;
 		}
-
+		
 		var angle = Math.atan2((p2 - 30) - this.y, (this.x + 5) - this.x);
 		this.y += this.ySpeed;
-
+		
 		if (grounded && playing){
 			this.rot -= (this.rot - angle) * 0.5;
 			this.rSpeed = this.rSpeed - (angle - this.rot);
+			
 		}
+		
+		if(k.ArrowUp = 1){
+			var start = new Date().getTime();
+		}
+	
+	// УПАЛ НА ГОЛОВУ	
+		if (!playing && !grounded && Math.abs(this.rot) > Math.PI * 0.7){
+			
+
+			
+			 alert ('Your score:' + score );
+
+
+			
+	
+
+
+			$('body').append('<p id="score" class="bidScore"></p>');
+			// document.getElementById("bigScoreEl").childNodes[0].nodeValue = score;
+			// window.location.reload();
+		}
+		
+
+		if ( Math.abs(this.rot) >= Math.PI * 0.99){	
+			score += 100;
+			document.getElementById("scoreEl").childNodes[0].nodeValue = score;
+			
+			
+			
+			$('body').append('<p id="score_salto" class="score_salto">+100</p>');
+			
+		} 
+		
+		
+		
+
+	   let file = "score.json";
+
+
 		this.rSpeed += (k.ArrowLeft - k.ArrowRight) * 0.05;
 		this.rot -= this.rSpeed * 0.1;
 		if(this.rot > Math.PI) this.rot = -Math.PI;
@@ -61,18 +113,24 @@ var player = new function() {
 		ctx.rotate(this.rot);
 		ctx.drawImage(this.img, -30, -30, 60, 60);
 		ctx.restore(this.rot);
+		
 	}
+	
 }
+
 
 
 
 var t = 0;
 var speed = 0;
+
 var playing = true;
 var k = {ArrowUp:0, ArrowDown:0, ArrowLeft:0, ArrowRight:0};
+
 function loop() {
+	
 	speed -= (speed - (k.ArrowUp - k.ArrowDown)) * 0.01;
-	t += 10 * speed;
+	t += 12 * speed;
 	var my_gradient = ctx.createLinearGradient(0, 0, 100, 800);
     my_gradient.addColorStop(0, "orange");
     my_gradient.addColorStop(1, "red");
@@ -85,17 +143,23 @@ function loop() {
 	for (let i = 0; i < c.width; i++) {
 		ctx.lineTo(i, c.height - noise(t + i) * 0.25);
 	}
-
+	
 	ctx.lineTo(c.width, c.height);
 	ctx.fill();
 
 	player.draw();
 	requestAnimationFrame(loop);
+
+	
 }
 
  onkeydown = d=> k[d.key] = 1;
  onkeyup = d=> k[d.key] = 0;
+
+ 
+ 
 loop();
+
 
 
 function upTrue(){keys[38] = true;}
@@ -109,10 +173,9 @@ upKey.addEventListener('touchend', upFalse);
 
 function move() {
 	k.ArrowUp = 1;
+
 }
-function moveup() {
-	k.ArrowUp = 0;
-}
+
 
 function movedown() {
 	k.ArrowUp = 1;
@@ -143,5 +206,26 @@ function movedownright() {
 }
 
 
+
+function init()
+{
+	sec = 0;
+	setInterval(tick, 1000);
+}
+
+function tick()
+{
+	sec++;
+	// document.getElementById("timer").
+	// 	childNodes[0].nodeValue = sec;
+		if (sec >= 3){
+			score += 10;
+			document.getElementById("scoreEl").childNodes[0].nodeValue = score;
+		}		
+
+}
+
+
+	
 
 

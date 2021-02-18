@@ -3,46 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 	<title>Moto Game</title>
-	<style>*{margin: 0;}
-	body{
-		position: relative;
-		overflow: hidden;
-		background: #000;
-		max-height: 100vh;
-	}
-
-button{
-	width: 50px;
-	height: 50px;
-	padding: 0 2px;
-	background: transparent;
-	border: none;
-	outline: none;
-}
-
-.rotup{
-	position: absolute;
-	top: 50%;
-	left: 0;
-}
-.rotdown{
-	position: absolute;
-	top: 50%;
-	right: 0;
-}
-
-
+	<style>
+	
 	</style>
 </head>
-<body>
-	
+<body onload="init()">
+	<!-- <div  id="timer" style="background-color: thistle;">0</div> -->
 	<script src="index.js"></script>
-
+	<!-- <div id="salto" class="salto" >+100</div> -->
+	<h1 style="position: absolute; top: 50%; left: 50%; display: none;" id="bigScoreEl">0</h1>
+	<div  class="score" style="position: absolute; top: 10px; left: 10px;"><span>Score: </span><span id="scoreEl">0</span></div>
 	<center>
-		<button class="forward" ontouchstart="move();"><div style="position: absolute;
-			bottom: calc(0% - 30px);
+		<button class="forward upbtn" ontouchstart="move();"><div style="position: absolute;
+			bottom: calc(0% - 10px);
 			left: calc(50% - 30px);
 			width: 60px;
 			height: 60px;
@@ -52,8 +30,8 @@ button{
 			opacity: 0.25;
 			will-change: opacity;
 		}"><div style="position: absolute; top: calc(50% - 13px); left: calc(50% - 11px); width: 22px; height: 26px; background-image: url(0d610daf67902cdb0c8f7a936d11a961.png); background-size: cover; transform: rotate(90deg);"></div></div></button>
-		<button class="backward" ontouchstart="movedownBack();" ontouchend="moveupBack();">STOP</button> 
-		<button class="rotup" ontouchstart="movedownleft();" ontouchend="moveupleft();" ><div style="position: absolute;
+		<button class="backwardbtn" ontouchstart="movedownBack();" ontouchend="moveupBack();">STOP</button> 
+		<button class="rotup rotbtn" ontouchstart="movedownleft();" ontouchend="moveupleft();" ><div style="position: absolute;
 			top: calc(50% - 30px);
 			left: calc(50% );
 			width: 60px;
@@ -64,7 +42,7 @@ button{
 			opacity: 0.25;
 			will-change: opacity;
 		}"><div style="position: absolute; top: calc(50% - 9px); left: calc(50% - 11px); width: 22px; height: 18px; background-image: url(00a7e92cbdac1c30d8e13460d27109df.png); background-size: cover; transform: rotate(360deg);"></div></div></button>
-		<button class="rotdown" ontouchstart="movedownright();" ontouchend="moveupright();"><div style="position: absolute;
+		<button class="rotdown rotbtn" ontouchstart="movedownright();" ontouchend="moveupright();"><div style="position: absolute;
 			top: calc(50% - 30px);
 			left: calc(50% - 60px);
 			width: 60px;
@@ -87,7 +65,7 @@ button{
 		will-change: opacity;
 		background-image: url(refresh.jpg) no-repeat;
 	}" type="button" onClick="window.location.reload();"> -->
-	<button  onClick="window.location.reload();"><div style="position: absolute;
+	<button id="refresh" onClick="window.location.reload();"><div style="position: absolute;
 		top: calc(0% + 30px);
 		left: calc(100% - 90px);
 		width: 60px;

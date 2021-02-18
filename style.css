@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+}
+body{
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    max-height: 100vh;
+}
+button{
+	width: 50px;
+	height: 50px;
+	padding: 0 2px;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+.rotup{
+	position: absolute;
+	top: 50%;
+	left: 0;
+}
+.rotdown{
+	position: absolute;
+	top: 50%;
+	right: 0;
+}
+#refresh{
+	display: none;
+}
+.upbtn, .rotbtn{
+	display: none;
+}
+@media (max-width: 1024px){
+	.upbtn, .rotbtn{
+	display: block;
+}	
+}
+#salto{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: none;
+	animation-name: slidein;
+	animation-duration: 0.9s ;
+    
+}
+.score{
+    font-family: 'Bungee Inline', cursive;
+}
+#score_salto{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 0;
+    font-family: 'Bungee Inline', cursive;
+    animation-name: slidein;
+	animation-duration: 0.7s ;
+}
+@keyframes slidein {
+  0% {
+    opacity: 0%;
+    
+  }
+  80%{
+    font-size: 50px;
+	opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+	
+  }
+}
