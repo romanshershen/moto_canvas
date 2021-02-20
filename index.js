@@ -1,7 +1,7 @@
 var c = document.createElement("canvas");
 var ctx = c.getContext("2d");
 c.width = window.innerWidth; 
-c.height = window.innerHeight * 0.9;
+c.height = window.innerHeight * 0.85;
 
 
 
@@ -80,27 +80,13 @@ var player = new function() {
 			bigScoreEl.style.display = 'block';
 			reload.style.display = 'block';
 			score_salto.style.display = 'none';
-			rotup.style.display = 'none';
-			rotdown.style.display = 'none';	
 			window.location.stop();
-			
-			
-	// 		function myFunc()
-    // {
-    //    // код, который нужно  запустить после паузы
-	  //window.location.reload();
-    // }
-      
-    // setTimeout(myFunc, 10);
-
-
-			//$('body').append('<p id="" class="bigScore">Your score: score <br><button id="refresh" onClick="window.location.reload();">перезагрузить</button></p>');
-			// document.getElementById("bigScoreEl").childNodes[0].nodeValue = score;
-			// window.location.reload();
 		}
 		
 
 // При сальто
+
+
 		if ( Math.abs(this.rot) >= Math.PI * 0.99){	
 			score += 100;
 			document.getElementById("scoreEl").childNodes[0].nodeValue = score;
