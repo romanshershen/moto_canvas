@@ -1,13 +1,13 @@
 var c = document.createElement("canvas");
 var ctx = c.getContext("2d");
 c.width = window.innerWidth; 
-c.height = window.innerHeight * 0.8;
+c.height = window.innerHeight * 0.9;
 
 
 
 const scoreEl = document.querySelector('#scoreEl');
 let score = 0;
-
+let file = "score.json";
 
 
 document.body.appendChild(c);
@@ -27,7 +27,7 @@ var noise = x=>{
 }
 
 
-// var SecondWay = 0;
+
 var player = new function() {
 	this.x = c.width/2;
 	this.y = 0;
@@ -54,7 +54,7 @@ var player = new function() {
 			playing = false;
 			this.rSpeed = 5;
 			k.ArrowUp = 1;
-			this.x -= speed * 0;
+			this.x -= speed * 0.1;
 		}
 		
 		var angle = Math.atan2((p2 - 30) - this.y, (this.x + 5) - this.x);
@@ -63,26 +63,32 @@ var player = new function() {
 		if (grounded && playing){
 			this.rot -= (this.rot - angle) * 0.5;
 			this.rSpeed = this.rSpeed - (angle - this.rot);
-			
 		}
 		
-		if(k.ArrowUp = 1){
-			var start = new Date().getTime();
-		}
+		// if(k.ArrowUp = 1){
+		// 	var start = new Date().getTime();
+		// }
 	
 	// УПАЛ НА ГОЛОВУ	
 		if (!playing && !grounded && Math.abs(this.rot) > Math.PI * 0.7){
 			
+			scor.style.display = 'none';
+			$('body').append('<p class="big">Your score:</p>');
+			bigScoreEl.innerHTML = score;				
+			speed = 0;
 			
+			bigScoreEl.style.display = 'block';
+			reload.style.display = 'block';
+			score_salto.style.display = 'none';
+			rotup.style.display = 'none';
+			rotdown.style.display = 'none';	
+			window.location.stop();
 			
-			//alert ('Your score: ' + score);
-			
-
 			
 	// 		function myFunc()
     // {
     //    // код, который нужно  запустить после паузы
-	  window.location.reload();
+	  //window.location.reload();
     // }
       
     // setTimeout(myFunc, 10);
@@ -105,7 +111,7 @@ var player = new function() {
 		
 		
 
-	   let file = "score.json";
+	   
 
 
 		this.rSpeed += (k.ArrowLeft - k.ArrowRight) * 0.05;
@@ -179,6 +185,10 @@ function move() {
 	k.ArrowUp = 1;
 
 }
+function moveup() {
+	k.ArrowUp = 0;
+
+}
 
 
 function movedown() {
@@ -222,7 +232,7 @@ function tick()
 	sec++;
 	// document.getElementById("timer").
 	// 	childNodes[0].nodeValue = sec;
-		if (sec >= 3){
+		if (sec >= 3 && k.ArrowUp == 1 ){
 			score += 10;
 			document.getElementById("scoreEl").childNodes[0].nodeValue = score;
 		}		
