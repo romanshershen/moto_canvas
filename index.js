@@ -36,7 +36,7 @@ var player = new function() {
 	this.rSpeed = 0;
 
 	this.img = new Image();
-	this.img.src = "moto.png";
+	this.img.src = "batmob.png";
 	
 	this.draw = function(){
 		var p1 = c.height - noise(t + this.x) * 0.25;
@@ -162,10 +162,10 @@ function upTrue(){keys[38] = true;}
 function upFalse(){keys[38] = false;}
 
 var upKey = document.getElementById('up');
-upKey.addEventListener('mousedown', upTrue);
-upKey.addEventListener('touchstart', upTrue);
-upKey.addEventListener('mouseup', upFalse);
-upKey.addEventListener('touchend', upFalse);
+// upKey.addEventListener('mousedown', upTrue);
+// upKey.addEventListener('touchstart', upTrue);
+// upKey.addEventListener('mouseup', upFalse);
+// upKey.addEventListener('touchend', upFalse);
 
 function move() {
 	k.ArrowUp = 1;
@@ -223,6 +223,10 @@ function tick()
 			document.getElementById("scoreEl").childNodes[0].nodeValue = score;
 		}		
 
+}
+
+function openMenu() {
+	menushka.style.display = 'block';
 }
 
 
