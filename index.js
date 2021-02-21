@@ -107,7 +107,7 @@ var player = new function() {
 		ctx.save();
 		ctx.translate(this.x, this.y);
 		ctx.rotate(this.rot);
-		ctx.drawImage(this.img, -60, -60, 90, 90);
+		ctx.drawImage(this.img, -45, -45, 75, 75);
 		ctx.restore(this.rot);
 		
 	}
