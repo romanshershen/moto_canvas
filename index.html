@@ -15,6 +15,15 @@
 <body onload="init()">
 	<script src="index.js"></script>
 	<h1 id="bigScoreEl">0</h1>
+	<div class="menu" id="menu" onclick="openMenu()">
+		<img src="menu.svg" alt="">
+		<div class="menu_window" id="menushka">
+			<ul>
+				<li>Coming soon</li>
+				
+			</ul>
+		</div>
+	</div>
 	<div class="score" id="scor" style="position: absolute; top: 10px; left: 10px;"><span>Score: </span><span id="scoreEl">0</span></div>
 	<center>
 		<button class="forward upbtn" ontouchstart="move();" ><div style="position: absolute;
