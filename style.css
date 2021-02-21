@@ -86,7 +86,7 @@ button{
   transform: translate(-50%, -50%);
   font-size: 20px;
   font-family: 'Bungee Inline', cursive;
-  color: #000;
+  color: #fff;
 }
 .reload_window{
   display: none;
@@ -127,4 +127,11 @@ button{
   color: #fff;
 }
 
-
+.menu{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#menushka{
+  display: none;
+}
