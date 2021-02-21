@@ -36,7 +36,7 @@ var player = new function() {
 	this.rSpeed = 0;
 
 	this.img = new Image();
-	this.img.src = "batmob.png";
+	this.img.src = "batmob2.png";
 	
 	this.draw = function(){
 		var p1 = c.height - noise(t + this.x) * 0.25;
@@ -107,7 +107,7 @@ var player = new function() {
 		ctx.save();
 		ctx.translate(this.x, this.y);
 		ctx.rotate(this.rot);
-		ctx.drawImage(this.img, -30, -30, 60, 60);
+		ctx.drawImage(this.img, -60, -60, 90, 90);
 		ctx.restore(this.rot);
 		
 	}
