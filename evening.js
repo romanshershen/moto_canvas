@@ -77,18 +77,10 @@ var player = new function() {
 			bigScoreEl.innerHTML = score;				
 			speed = 0;
 			
-
-			
 			bigScoreEl.style.display = 'block';
 			reload.style.display = 'block';
 			score_salto.style.display = 'none';
 			window.location.stop();
-			
-				localStorage.setItem('key', score);
-				
-				localStorage.getItem('1');
-
-			
 		}
 		
 
@@ -133,11 +125,11 @@ var k = {ArrowUp:0, ArrowDown:0, ArrowLeft:0, ArrowRight:0};
 
 function loop() {
 	
-	speed -= (speed - (k.ArrowUp - k.ArrowDown)) * 0.02;
+	speed -= (speed - (k.ArrowUp - k.ArrowDown)) * 0.01;
 	t += 12 * speed;
-	var my_gradient = ctx.createLinearGradient(0, 0, 100, 800);
-    my_gradient.addColorStop(0, "#196284");
-    my_gradient.addColorStop(1, "#20ad72");
+	var my_gradient = ctx.createLinearGradient(0, 0, 100, 600);
+    my_gradient.addColorStop(0, "#434444");
+    my_gradient.addColorStop(1, "#00d4ff");
 	
 	
     ctx.fillStyle = my_gradient;
@@ -255,9 +247,7 @@ function openMenu() {
 
 function openBg() {
 	// $('#openbg').toggleClass('active');
-	$('.header_burger, .openbg').toggleClass('active');
 	openbg.style.display = 'block';
 	header_menu.style.display = 'none';
-	
 }
 
