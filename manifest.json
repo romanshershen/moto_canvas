@@ -1,0 +1,17 @@
+{
+    "name": "Moto",
+    "theme_color": "#000000",
+    "background_color": "#ffc300",
+    "display": "fullscreen",
+    "orientation": "landscape",
+    "scope": "/",
+    "start_url": ".",
+    "icons": [
+        {
+            "src": "/shershen.svg",
+            "sizes": "1000x1000",
+            "type": "image/png"
+        }
+    ]
+  }
+

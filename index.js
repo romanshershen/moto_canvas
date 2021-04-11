@@ -1,5 +1,23 @@
-var c = document.createElement("canvas");
-var ctx = c.getContext("2d");
+
+window.addEventListener('load', async () => {
+	if (navigator.serviceWorker){
+		try{
+			const reg = await navigator.serviceWorker.register('/sw.js')
+			console.log('Service worker register success', reg)
+	
+		} catch(e) {
+			console.log('Service worker register failed')
+		}
+		
+	}
+})
+
+
+
+
+
+let c = document.createElement("canvas");
+let ctx = c.getContext("2d");
 c.width = window.innerWidth; 
 c.height = window.innerHeight * 0.85;
 
@@ -12,7 +30,7 @@ let file = "score.json";
 
 document.body.appendChild(c);
 
-var perm = [];
+let perm = [];
 while (perm.length < 255){
 	while(perm.includes(val = Math.floor(Math.random()*255)));
 	perm.push(val);
@@ -20,15 +38,15 @@ while (perm.length < 255){
 
 
 
-var lerp = (a, b, t) => a + (b - a) * (1 - Math.cos(t * Math.PI))/2;
-var noise = x=>{
+let lerp = (a, b, t) => a + (b - a) * (1 - Math.cos(t * Math.PI))/2;
+let noise = x => {
 	x = x * 0.007 % 255;
 	return lerp(perm[Math.floor(x)], perm[Math.ceil(x)], x - Math.floor(x));
 }
 
 
 
-var player = new function() {
+let player = new function() {
 	this.x = c.width/2;
 	this.y = 0;
 	this.ySpeed = 0;
@@ -39,9 +57,9 @@ var player = new function() {
 	this.img.src = "moto.png";
 	
 	this.draw = function(){
-		var p1 = c.height - noise(t + this.x) * 0.25;
-		var p2 = c.height - noise(t + 5 + this.x) * 0.25;
-		var grounded = 0;
+		let p1 = c.height - noise(t + this.x) * 0.25;
+		let p2 = c.height - noise(t + 5 + this.x) * 0.25;
+		let grounded = 0;
 		if(p1 - 30 > this.y){
 			this.ySpeed += 0.1;
 		} else{
@@ -57,7 +75,7 @@ var player = new function() {
 			this.x -= speed * 0.1;
 		}
 		
-		var angle = Math.atan2((p2 - 30) - this.y, (this.x + 5) - this.x);
+		let angle = Math.atan2((p2 - 30) - this.y, (this.x + 5) - this.x);
 		this.y += this.ySpeed;
 		
 		if (grounded && playing){
@@ -65,9 +83,6 @@ var player = new function() {
 			this.rSpeed = this.rSpeed - (angle - this.rot);
 		}
 		
-		// if(k.ArrowUp = 1){
-		// 	var start = new Date().getTime();
-		// }
 	
 	// УПАЛ НА ГОЛОВУ	
 		if (!playing && !grounded && Math.abs(this.rot) > Math.PI * 0.7){
@@ -100,7 +115,8 @@ var player = new function() {
 			document.getElementById("scoreEl").childNodes[0].nodeValue = score;
 			$('body').append('<p id="score_salto" class="score_salto">+100</p>');
 			
-		} 
+		}  
+		
 		
 		
 		
@@ -125,17 +141,18 @@ var player = new function() {
 
 
 
-var t = 0;
-var speed = 0;
+let t = 0;
+let speed = 0;
 
-var playing = true;
-var k = {ArrowUp:0, ArrowDown:0, ArrowLeft:0, ArrowRight:0};
+let playing = true;
+let k = {ArrowUp:0, ArrowDown:0, ArrowLeft:0, ArrowRight:0};
 
 function loop() {
 	
 	speed -= (speed - (k.ArrowUp - k.ArrowDown)) * 0.02;
 	t += 12 * speed;
-	var my_gradient = ctx.createLinearGradient(0, 0, 100, 800);
+	
+	let my_gradient = ctx.createLinearGradient(0, 0, 100, 800);
     my_gradient.addColorStop(0, "#196284");
     my_gradient.addColorStop(1, "#20ad72");
 	
@@ -168,28 +185,11 @@ function loop() {
  
 loop();
 
-function night() {
-	var my_gradient1 = ctx.createLinearGradient(0, 0, 100, 800);
-    my_gradient1.addColorStop(0, "#000");
-    my_gradient1.addColorStop(1, "#fff ");
-	
-	my_gradient =  my_gradient1;
-    ctx.fillStyle = my_gradient1;
-	ctx.fillRect(0, 0, c.width, c.height);
-	console.log(night);
-	player.draw();
-	requestAnimationFrame(loop);
-
-}
 
 function upTrue(){keys[38] = true;}
 function upFalse(){keys[38] = false;}
 
-var upKey = document.getElementById('up');
-// upKey.addEventListener('mousedown', upTrue);
-// upKey.addEventListener('touchstart', upTrue);
-// upKey.addEventListener('mouseup', upFalse);
-// upKey.addEventListener('touchend', upFalse);
+let upKey = document.getElementById('up');
 
 function move() {
 	k.ArrowUp = 1;
@@ -228,36 +228,25 @@ function moveupright() {
 function movedownright() {
 	k.ArrowRight = 1;
 }
-
-
-
 function init()
 {
 	sec = 0;
 	setInterval(tick, 1000);
 }
-
 function tick()
 {
 	sec++;
-	// document.getElementById("timer").
-	// 	childNodes[0].nodeValue = sec;
 		if (sec >= 3 && k.ArrowUp == 1 ){
 			score += 10;
 			document.getElementById("scoreEl").childNodes[0].nodeValue = score;
 		}		
-
 }
-
 function openMenu() {
 	$('.header_burger, .header_menu').toggleClass('active');
 }
-
 function openBg() {
-	// $('#openbg').toggleClass('active');
 	$('.header_burger, .openbg').toggleClass('active');
 	openbg.style.display = 'block';
-	header_menu.style.display = 'none';
-	
+	header_menu.style.display = 'none';	
 }
 
