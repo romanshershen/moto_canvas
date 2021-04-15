@@ -1,5 +1,6 @@
 {
-    "name": "Moto",
+    "name": "Moto App Shershen",
+    "short_name": "Moto",
     "theme_color": "#000000",
     "background_color": "#ffc300",
     "display": "fullscreen",
