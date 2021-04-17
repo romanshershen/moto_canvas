@@ -2,8 +2,8 @@
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "android_app",
-    "package_name": "com.example.motoapp",
+    "package_name": "com.shershen.motoapp",
     "sha256_cert_fingerprints":
-    ["EC:B2:B9:C7:9A:7E:E3:23:18:C2:41:F0:5F:B4:CC:01:A3:5D:9F:2F:7A:19:E9:C0:15:9E:CC:F3:9D:35:9D:8E"]
+    ["EA:C4:BA:8A:E6:5E:17:AF:AA:CE:81:C3:4E:58:D1:DB:62:06:DF:09:D9:9B:7B:00:59:83:1D:59:0F:8E:73:F1"]
   }
 }]
