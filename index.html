@@ -42,42 +42,30 @@
 		</nav>
 	</div>
 	
-	<div class="score" id="scor" style="position: absolute; top: 10px; left: 10px;"><span>Score: </span><span id="scoreEl">0</span></div>
-	<center>
-		<button class="forward upbtn" ontouchstart="move();" ><div style="position: absolute;
-			bottom: calc(-25px);
-			left: calc(50% - 30px);
-			width: 60px;
-			height: 60px;
-			border: 2px solid rgb(255, 255, 255);
-			border-radius: 10px;
-			box-sizing: border-box;
-			opacity: 0.25;
-			will-change: opacity;
-		}"><div style="position: absolute; top: calc(50% - 13px); left: calc(50% - 11px); width: 22px; height: 26px; background-image: url(0d610daf67902cdb0c8f7a936d11a961.png); background-size: cover; transform: rotate(90deg);"></div></div></button>
-		<!-- <button class="backwardbtn" ontouchstart="movedownBack();" ontouchend="moveupBack();">STOP</button>  -->
-		<button class="rotup rotbtn" id="rotup" ontouchstart="movedownleft();" ontouchend="moveupleft();" ><div style="position: absolute;
-			top: calc(50% - 30px);
-			left: calc(50% - 23px );
-			width: 60px;
-			height: 60px;
-			border: 2px solid rgb(255, 255, 255);
-			border-radius: 10px;
-			box-sizing: border-box;
-			opacity: 0.25;
-			will-change: opacity;
-		}"><div style="position: absolute; top: calc(50% - 9px); left: calc(50% - 11px); width: 22px; height: 18px; background-image: url(00a7e92cbdac1c30d8e13460d27109df.png); background-size: cover; transform: rotate(360deg);"></div></div></button>
-		<button class="rotdown rotbtn" ontouchstart="movedownright();" ontouchend="moveupright();"><div style="position: absolute;
-			top: calc(50% - 30px);
-			left: calc(50% - 37px);
-			width: 60px;
-			height: 60px;
-			border: 2px solid rgb(255, 255, 255);
-			border-radius: 10px;
-			box-sizing: border-box;
-			opacity: 0.25;
-			will-change: opacity;
-		}"><div style="position: absolute; top: calc(50% - 9px); left: calc(50% - 11px); width: 22px; height: 18px; background-image: url(00a7e92cbdac1c30d8e13460d27109df.png); background-size: cover; transform: rotate(180deg);"></div></div></button>
+	<div class="score" id="scor"><span>Score: </span><span id="scoreEl">0</span></div>
+	
+		<button class="forward upbtn" ontouchstart="move();" ontouchend="moveup();" >
+			<div id="upbtn">
+				<div id="upp"></div>
+			</div
+		></button>
+
+		<button class="backwardbtn" ontouchstart="movedownBack();" ontouchend="moveupBack();">
+			<div id="downbtn">
+				<div id="downn"></div>
+			</div>
+		</button> 
+
+		<button class="rotup rotbtn" ontouchstart="movedownleft();" ontouchend="moveupleft();" >
+			<div id="rotup">
+				<div id="rotupp"></div>
+			</div>
+		</button>
+		<button class="rotdown rotbtn" ontouchstart="movedownright();" ontouchend="moveupright();">
+			<div id="rotdown">
+				<div id="rotdownn"></div>
+			</div>
+		</button>
 		<!-- <input class="refresh" style="position: absolute;
 		top: calc(0% + 30px);
 		left: calc(100% - 90px);
@@ -90,20 +78,13 @@
 		will-change: opacity;
 		background-image: url(refresh.jpg) no-repeat;
 	}" type="button" onClick="window.location.reload();"> -->
-	<button id="refresh" onClick="window.location.reload();"><div style="position: absolute;
-		top: calc(0% + 30px);
-		left: calc(100% - 90px);
-		width: 60px;
-		height: 60px;
-		border: 2px solid rgb(255, 255, 255);
-		border-radius: 10px;
-		box-sizing: border-box;
-		opacity: 0.25;
-		will-change: opacity;
-	}"><div style="position: absolute; top: calc(50% - 11px); left: calc(50% - 11px); width: 25px; height: 25px; background-image: url(refresh.png); background-size: cover; transform: rotate(180deg);"></div></div></button>
-	</center>
+	<button id="refresh" onClick="window.location.reload();">
+		<div id="ref">
+			<div id="reff"></div>
+		</div>
+	</button>
+	
 	<div class="reload_window" id="reload" >
-		
 		<p class="res" onClick="window.location.reload();">RESTART</p>
 	</div>
 	

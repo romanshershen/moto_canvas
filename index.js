@@ -75,7 +75,7 @@ let player = new function() {
 			this.x -= speed * 0.1;
 		}
 		
-		let angle = Math.atan2((p2 - 30) - this.y, (this.x + 5) - this.x);
+		let angle = Math.atan2((p2 - 30) - this.y, (this.x + 4) - this.x);
 		this.y += this.ySpeed;
 		
 		if (grounded && playing){
@@ -250,3 +250,9 @@ function openBg() {
 	header_menu.style.display = 'none';	
 }
 
+$(".res").keyup(function(event){
+    if(event.keyCode == 13){
+       window.location.reload();
+
+    }
+});

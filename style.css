@@ -34,8 +34,11 @@ button{
 .upbtn{
   display: none;
 }
+.backwardbtn{
+  display: none;
+}
 @media (max-width: 1024px){
-	.upbtn, .rotbtn{
+	.upbtn, .rotbtn, .backwardbtn{
 	display: block;
 }	
 }
@@ -235,9 +238,7 @@ ul{
   z-index: 5;
   font-size: 30px;
 }
-.bg{
- 
-}
+
 .bg.active{
   list-style: none;
   font-family: 'Bungee Inline', cursive;
@@ -266,4 +267,132 @@ ul{
   font-family: 'Bungee Inline', cursive;
   color: #fff;
   font-size: 30px;
+}
+
+
+.score{
+  position: absolute; 
+  top: 10px; 
+  left: 10px;
+}
+#upbtn{
+  position: absolute;
+  bottom: calc(5px);
+  left: calc(60% - 30px);
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  box-sizing: border-box;
+  opacity: 0.25;
+  will-change: opacity;
+}
+#downbtn{
+  position: absolute;
+  bottom: calc(5px);
+  left: calc(40% - 30px);
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  box-sizing: border-box;
+  opacity: 0.25;
+  will-change: opacity;
+}
+.uparrow{
+  position: absolute;
+  top: calc(50% - 13px);
+  left: calc(50% - 11px);
+  width: 22px;
+  height: 26px;
+  background-image: url(../0d610daf67902cdb0c8f7a936d11a961.png);
+  background-size: cover;
+  transform: rotate(90deg);
+}
+
+#rotup{
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 23px );
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  box-sizing: border-box;
+  opacity: 0.25;
+  will-change: opacity;
+}
+
+#rotdown{
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 37px);
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  box-sizing: border-box;
+  opacity: 0.25;
+  will-change: opacity;
+}
+#upp{
+  position: absolute;
+  top: calc(50% - 13px);
+  left: calc(50% - 11px);
+  width: 22px; height: 26px;
+  background-image: url(0d610daf67902cdb0c8f7a936d11a961.png);
+  background-size: cover;
+  transform: rotate(90deg);
+}
+
+#downn{
+  position: absolute;
+  top: calc(50% - 13px);
+  left: calc(50% - 11px); 
+  width: 22px; height: 26px; 
+  background-image: url(0d610daf67902cdb0c8f7a936d11a961.png); 
+  background-size: cover;
+  transform: rotate(-90deg);
+}
+#rotupp{
+  position: absolute; 
+  top: calc(50% - 9px); 
+  left: calc(50% - 11px); 
+  width: 22px; 
+  height: 18px; 
+  background-image: url(00a7e92cbdac1c30d8e13460d27109df.png); 
+  background-size: cover; 
+  transform: rotate(360deg);
+}
+#rotdownn{
+  position: absolute; 
+  top: calc(50% - 9px); 
+  left: calc(50% - 11px); 
+  width: 22px; height: 18px; 
+  background-image: url(00a7e92cbdac1c30d8e13460d27109df.png); 
+  background-size: cover; 
+  transform: rotate(180deg);
+}
+
+#ref{
+  position: absolute;
+  top: calc(0% + 30px);
+  left: calc(100% - 90px);
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  box-sizing: border-box;
+  opacity: 0.25;
+  will-change: opacity;
+}
+#reff{
+  position: absolute; 
+  top: calc(50% - 11px); 
+  left: calc(50% - 11px); 
+  width: 25px; 
+  height: 25px; 
+  background-image: url(refresh.png); 
+  background-size: cover; 
+  transform: rotate(180deg);
 }
