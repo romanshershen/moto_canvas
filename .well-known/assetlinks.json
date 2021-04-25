@@ -2,7 +2,7 @@
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "android_app",
-    "package_name": "com.example.motoapp",
+    "package_name": "com.shershen.motoapp",
     "sha256_cert_fingerprints":
     ["12:DB:6F:EA:08:97:34:6E:C3:94:0F:46:4C:33:80:4F:01:DD:A3:90"]
   }
